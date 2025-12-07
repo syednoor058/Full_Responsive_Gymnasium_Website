@@ -27,12 +27,12 @@ const FeatureCard = ({
       transition={{ duration: 0.5, delay }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="bg-card/50 backdrop-blur-sm border border-border/50 rounded-lg p-6 hover:border-primary/50 transition-all duration-300 group"
+      className="bg-card/50 backdrop-blur-sm border border-border/50 rounded p-6 hover:border-primary/50 transition-all duration-300 group flex flex-col justify-center items-center text-center"
     >
       <motion.div
         animate={isHovered ? { scale: 1.1, rotate: 5 } : { scale: 1, rotate: 0 }}
         transition={{ duration: 0.3 }}
-        className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors"
+        className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors"
       >
         <Icon className="w-8 h-8 text-primary" />
       </motion.div>
@@ -78,8 +78,8 @@ export const Features = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="features" className="section-padding bg-secondary">
-      <div className="container mx-auto">
+    <section id="features" className="section-padding bg-background">
+
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
@@ -88,16 +88,16 @@ export const Features = () => {
           className="text-center mb-16"
         >
           <span className="text-primary font-display uppercase tracking-[0.3em] text-sm mb-4 block">
-            What We Offer
+            Features
           </span>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold uppercase">
-            Our Features
+            What We Offer
           </h2>
         </motion.div>
 
-        <div className="grid lg:grid-cols-3 gap-8 items-center">
+        <div className="grid lg:grid-cols-3 gap-5 items-center">
           {/* Left Features */}
-          <div className="space-y-6">
+          <div className="space-y-5">
             <FeatureCard {...features[0]} delay={0.2} />
             <FeatureCard {...features[1]} delay={0.4} />
           </div>
@@ -109,7 +109,7 @@ export const Features = () => {
             transition={{ duration: 0.6 }}
             className="relative hidden lg:block"
           >
-            <div className="aspect-[3/4] rounded-2xl overflow-hidden">
+            <div className="aspect-[3/4] rounded overflow-hidden">
               <img
                 src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?q=80&w=1470&auto=format&fit=crop"
                 alt="Athlete training"
@@ -117,18 +117,17 @@ export const Features = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
             </div>
-            <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-primary rounded-lg flex items-center justify-center">
+            <div className="absolute -bottom-8 left-[50%] right-[50%] w-20 h-20 bg-primary rounded flex items-center justify-center">
               <span className="font-display text-3xl font-bold text-primary-foreground">10+</span>
             </div>
           </motion.div>
 
           {/* Right Features */}
-          <div className="space-y-6">
+          <div className="space-y-5">
             <FeatureCard {...features[2]} delay={0.3} />
             <FeatureCard {...features[3]} delay={0.5} />
           </div>
         </div>
-      </div>
     </section>
   );
 };

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import headerCover from "@/assets/header-cover.jpg"
 
 export const Hero = () => {
   return (
@@ -11,16 +12,16 @@ export const Hero = () => {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop"
+          src={headerCover}
           alt="Athlete training in gym"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background" />
         <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-transparent to-background/40" />
       </div>
 
       {/* Content */}
-      <div className="container mx-auto px-4 md:px-8 relative z-10 pt-20">
+      <div className="container mx-auto px-4 md:px-8 lg:px-12 relative z-10 pt-20 pb-10">
         <div className="max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -28,7 +29,7 @@ export const Hero = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <span className="inline-block text-primary font-display uppercase tracking-[0.3em] text-sm md:text-base mb-4">
-              Welcome to Fit Fusion
+              Welcome to Pulse Fitness
             </span>
           </motion.div>
 
@@ -36,7 +37,7 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="font-display text-5xl md:text-7xl lg:text-8xl font-bold uppercase leading-none mb-6"
+            className="font-display text-5xl md:text-7xl font-bold uppercase leading-none mb-6"
           >
             Transform
             <br />
@@ -59,7 +60,7 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
-            className="flex flex-col sm:flex-row gap-4"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4"
           >
             <Button
               size="lg"
@@ -79,22 +80,6 @@ export const Hero = () => {
           </motion.div>
         </div>
       </div>
-
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
-      >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-          className="w-6 h-10 rounded-full border-2 border-foreground/30 flex items-start justify-center p-2"
-        >
-          <motion.div className="w-1 h-2 bg-primary rounded-full" />
-        </motion.div>
-      </motion.div>
     </section>
   );
 };

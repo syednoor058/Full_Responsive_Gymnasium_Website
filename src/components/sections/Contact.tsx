@@ -10,8 +10,8 @@ export const Contact = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="contact" className="section-padding bg-background">
-      <div className="container mx-auto">
+    <section id="contact" className="section-padding bg-secondary">
+
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
@@ -20,10 +20,10 @@ export const Contact = () => {
           className="text-center mb-16"
         >
           <span className="text-primary font-display uppercase tracking-[0.3em] text-sm mb-4 block">
-            Get In Touch
+            Contact Us
           </span>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold uppercase">
-            Contact Us
+            Get In Touch
           </h2>
         </motion.div>
 
@@ -63,7 +63,7 @@ export const Contact = () => {
             {/* Contact Info */}
             <div className="grid sm:grid-cols-2 gap-6 mt-12">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 bg-primary/10 rounded flex items-center justify-center flex-shrink-0">
                   <MapPin className="w-5 h-5 text-primary" />
                 </div>
                 <div>
@@ -75,7 +75,7 @@ export const Contact = () => {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 bg-primary/10 rounded flex items-center justify-center flex-shrink-0">
                   <Phone className="w-5 h-5 text-primary" />
                 </div>
                 <div>
@@ -85,17 +85,17 @@ export const Contact = () => {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 bg-primary/10 rounded flex items-center justify-center flex-shrink-0">
                   <Mail className="w-5 h-5 text-primary" />
                 </div>
                 <div>
                   <h4 className="font-display font-semibold uppercase mb-1">Email</h4>
-                  <p className="text-muted-foreground text-sm">info@fitfusion.com</p>
+                  <p className="text-muted-foreground text-sm">info@pulsefitness.com</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 bg-primary/10 rounded flex items-center justify-center flex-shrink-0">
                   <Clock className="w-5 h-5 text-primary" />
                 </div>
                 <div>
@@ -111,7 +111,7 @@ export const Contact = () => {
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="h-[400px] lg:h-full min-h-[400px] rounded-2xl overflow-hidden"
+            className="h-[400px] lg:h-full min-h-[400px] rounded overflow-hidden"
           >
             <div className="w-full h-full bg-muted flex items-center justify-center">
               <iframe
@@ -127,7 +127,6 @@ export const Contact = () => {
             </div>
           </motion.div>
         </div>
-      </div>
     </section>
   );
 };

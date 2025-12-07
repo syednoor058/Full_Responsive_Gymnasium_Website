@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logo from "../../../public/logo.png"
 
 const navLinks = [
   { name: "Home", href: "#home" },
@@ -33,12 +34,10 @@ export const Navbar = () => {
         isScrolled ? "glass-morphism" : "bg-transparent"
       }`}
     >
-      <nav className="container mx-auto px-4 md:px-8 py-4 flex items-center justify-between">
+      <nav className="container mx-auto px-4 md:px-8 lg:px-12 py-4 flex items-center justify-between">
         {/* Logo */}
         <a href="#home" className="flex items-center gap-2">
-          <span className="font-display text-2xl md:text-3xl font-bold text-foreground tracking-wider">
-            FIT<span className="text-primary">FUSION</span>
-          </span>
+          <img src={logo} alt="Logo" className="h-12 w-auto" />
         </a>
 
         {/* Desktop Navigation */}

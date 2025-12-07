@@ -46,7 +46,6 @@ export const FAQ = () => {
 
   return (
     <section id="faq" className="section-padding bg-secondary">
-      <div className="container mx-auto">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
@@ -66,7 +65,7 @@ export const FAQ = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="max-w-4xl mx-auto"
+          className=""
         >
           <div className="grid md:grid-cols-2 gap-4">
             <Accordion type="single" collapsible className="space-y-4">
@@ -74,7 +73,7 @@ export const FAQ = () => {
                 <AccordionItem
                   key={index}
                   value={`item-${index}`}
-                  className="bg-card/50 border border-border/50 rounded-lg px-6 data-[state=open]:border-primary/50"
+                  className="bg-card/50 border border-border/50 rounded px-6 data-[state=open]:border-primary/50"
                 >
                   <AccordionTrigger className="text-left font-display uppercase tracking-wide text-sm hover:text-primary hover:no-underline py-4">
                     {faq.question}
@@ -91,7 +90,7 @@ export const FAQ = () => {
                 <AccordionItem
                   key={index + 3}
                   value={`item-${index + 3}`}
-                  className="bg-card/50 border border-border/50 rounded-lg px-6 data-[state=open]:border-primary/50"
+                  className="bg-card/50 border border-border/50 rounded px-6 data-[state=open]:border-primary/50"
                 >
                   <AccordionTrigger className="text-left font-display uppercase tracking-wide text-sm hover:text-primary hover:no-underline py-4">
                     {faq.question}
@@ -104,7 +103,6 @@ export const FAQ = () => {
             </Accordion>
           </div>
         </motion.div>
-      </div>
     </section>
   );
 };

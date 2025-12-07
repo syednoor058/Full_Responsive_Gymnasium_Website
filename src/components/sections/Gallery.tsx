@@ -51,7 +51,6 @@ export const Gallery = () => {
 
   return (
     <section id="gallery" className="section-padding bg-background">
-      <div className="container mx-auto">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
@@ -63,7 +62,7 @@ export const Gallery = () => {
             Our Space
           </span>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold uppercase">
-            Gallery
+            Image Gallery
           </h2>
         </motion.div>
 
@@ -97,7 +96,6 @@ export const Gallery = () => {
             </motion.div>
           ))}
         </div>
-      </div>
     </section>
   );
 };

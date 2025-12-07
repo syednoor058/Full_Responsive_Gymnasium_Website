@@ -1,4 +1,5 @@
 import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
+import logo from "../../../public/logo.png";
 
 const footerLinks = {
   quickLinks: [
@@ -33,15 +34,13 @@ const socialLinks = [
 
 export const Footer = () => {
   return (
-    <footer className="bg-secondary pt-16 pb-8">
+    <footer className="bg-background pt-16 pb-8">
       <div className="container mx-auto px-4 md:px-8">
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
           {/* Brand */}
           <div className="lg:col-span-2">
             <a href="#home" className="inline-block mb-4">
-              <span className="font-display text-3xl font-bold text-foreground tracking-wider">
-                FIT<span className="text-primary">FUSION</span>
-              </span>
+              <img src={logo} alt="Pulse Fitness Logo" className="h-14 w-auto" />
             </a>
             <p className="text-muted-foreground mb-6 max-w-sm">
               Transform your fitness journey with expert trainers, state-of-the-art 
@@ -120,12 +119,12 @@ export const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-border/50 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="border-t border-border/50 pt-8 flex flex-col md:flex-row items-center justify-between gap-2">
           <p className="text-muted-foreground text-sm">
-            © {new Date().getFullYear()} Fit Fusion. All rights reserved.
+            © {new Date().getFullYear()} Pulse Fitness. All rights reserved.
           </p>
           <p className="text-muted-foreground text-sm">
-            Designed with ❤️ for fitness enthusiasts
+            Developed by <a href="https://syednoor.vercel.app/" target="_blank" className="text-primary underline underline-offset-2">Syed Shaeduzzaman Noor</a>
           </p>
         </div>
       </div>
