@@ -30,14 +30,14 @@ export const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "glass-morphism" : "bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isScrolled ? "bg-black/40 backdrop-blur-xl border-b border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)] py-2" : "bg-transparent py-4"
       }`}
     >
-      <nav className="container mx-auto px-4 md:px-8 lg:px-12 py-4 flex items-center justify-between">
+      <nav className="container mx-auto px-4 md:px-8 lg:px-12 flex items-center justify-between">
         {/* Logo */}
-        <a href="#home" className="flex items-center gap-2">
-          <img src={logo} alt="Logo" className="h-12 w-auto" />
+        <a href="#home" className="flex items-center gap-2 group">
+          <img src={logo} alt="Logo" className="h-12 w-auto group-hover:scale-105 transition-transform duration-300" />
         </a>
 
         {/* Desktop Navigation */}
@@ -46,16 +46,18 @@ export const Navbar = () => {
             <a
               key={link.name}
               href={link.href}
-              className="text-muted-foreground hover:text-foreground transition-colors duration-300 text-sm font-medium uppercase tracking-wide"
+              className="relative text-white/80 hover:text-white transition-colors duration-300 text-sm font-medium uppercase tracking-widest group py-2"
             >
               {link.name}
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full filter drop-shadow-[0_0_5px_rgba(255,0,51,0.8)]" />
             </a>
           ))}
         </div>
 
         {/* CTA Button */}
-        <div className="hidden lg:block">
-          <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-display uppercase tracking-wider px-6">
+        <div className="hidden lg:block relative group">
+          <div className="absolute -inset-1 bg-gradient-to-r from-primary to-primary/50 rounded-lg blur opacity-40 group-hover:opacity-100 transition duration-500"></div>
+          <Button className="relative bg-primary hover:bg-white hover:text-primary text-white font-display uppercase tracking-widest px-8 transition-colors duration-300 shadow-[0_0_15px_rgba(255,0,51,0.3)] border border-primary/50">
             Join Now
           </Button>
         </div>
@@ -63,10 +65,10 @@ export const Navbar = () => {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="lg:hidden text-foreground p-2"
+          className="lg:hidden text-white p-2 hover:text-primary transition-colors focus:outline-none"
           aria-label="Toggle menu"
         >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </nav>
 
@@ -75,28 +77,37 @@ export const Navbar = () => {
         {isMobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
+            animate={{ opacity: 1, height: "100vh" }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="lg:hidden glass-morphism border-t border-border/50"
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+            className="lg:hidden fixed top-full left-0 right-0 bg-black/95 backdrop-blur-3xl border-t border-white/10 overflow-hidden flex flex-col"
           >
-            <div className="container mx-auto px-4 py-6 flex flex-col gap-4">
+            <div className="container mx-auto px-6 py-10 flex flex-col gap-6 flex-1 justify-center relative">
+               <div className="absolute top-1/4 -right-20 w-64 h-64 bg-primary/20 blur-[100px] rounded-full pointer-events-none" />
               {navLinks.map((link, index) => (
                 <motion.a
                   key={link.name}
                   href={link.href}
-                  initial={{ opacity: 0, x: -20 }}
+                  initial={{ opacity: 0, x: -30 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 }}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-muted-foreground hover:text-foreground transition-colors duration-300 text-lg font-medium uppercase tracking-wide py-2"
+                  className="text-white/70 hover:text-white hover:pl-4 transition-all duration-300 text-3xl font-display uppercase tracking-widest py-2 border-b border-white/5 flex items-center justify-between group"
                 >
                   {link.name}
+                  <span className="text-primary opacity-0 group-hover:opacity-100 transition-opacity">→</span>
                 </motion.a>
               ))}
-              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-display uppercase tracking-wider w-full mt-4">
-                Join Now
-              </Button>
+              <motion.div
+                 initial={{ opacity: 0, y: 20 }}
+                 animate={{ opacity: 1, y: 0 }}
+                 transition={{ delay: 0.6 }}
+                 className="mt-8"
+              >
+                  <Button className="bg-primary hover:bg-white text-white hover:text-primary font-display uppercase tracking-widest w-full h-14 text-xl rounded-xl shadow-[0_0_20px_rgba(255,0,51,0.4)]">
+                    Join Now For Free
+                  </Button>
+              </motion.div>
             </div>
           </motion.div>
         )}

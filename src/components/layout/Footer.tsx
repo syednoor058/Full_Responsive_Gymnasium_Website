@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
+import { Facebook, Instagram, Twitter, Youtube, ArrowUpRight } from "lucide-react";
 import logo from "../../../public/logo.png";
 
 const footerLinks = {
@@ -34,17 +34,20 @@ const socialLinks = [
 
 export const Footer = () => {
   return (
-    <footer className="bg-background pt-16 pb-8">
-      <div className="container mx-auto px-4 md:px-8">
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
+    <footer className="bg-black relative overflow-hidden pt-20 pb-8 border-t border-white/10">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+      <div className="absolute -top-24 -left-24 w-96 h-96 bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
+
+      <div className="container mx-auto px-4 md:px-8 relative z-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 mb-16">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <a href="#home" className="inline-block mb-4">
-              <img src={logo} alt="Pulse Fitness Logo" className="h-14 w-auto" />
+            <a href="#home" className="inline-block mb-6 group">
+              <img src={logo} alt="Pulse Fitness Logo" className="h-16 w-auto group-hover:scale-105 transition-transform duration-300 filter drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]" />
             </a>
-            <p className="text-muted-foreground mb-6 max-w-sm">
-              Transform your fitness journey with expert trainers, state-of-the-art 
-              equipment, and a community that supports your goals.
+            <p className="text-white/60 mb-8 max-w-sm leading-relaxed text-lg">
+              Forge your legacy. State-of-the-art equipment, elite trainers, and a forged-in-fire community.
             </p>
             <div className="flex items-center gap-4">
               {socialLinks.map((social) => (
@@ -52,9 +55,9 @@ export const Footer = () => {
                   key={social.label}
                   href={social.href}
                   aria-label={social.label}
-                  className="w-10 h-10 bg-card rounded-lg flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors"
+                  className="w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center text-white/50 hover:text-white hover:bg-primary hover:border-primary hover:shadow-[0_0_15px_rgba(255,0,51,0.6)] transition-all duration-300 group"
                 >
-                  <social.icon className="w-5 h-5" />
+                  <social.icon className="w-5 h-5 group-hover:scale-110 transition-transform" />
                 </a>
               ))}
             </div>
@@ -62,17 +65,18 @@ export const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-display font-semibold uppercase tracking-wide mb-4">
-              Quick Links
+            <h4 className="font-display font-bold uppercase tracking-widest text-white mb-6 flex items-center gap-2">
+              Quick Links <div className="h-px bg-primary/50 flex-1 ml-4" />
             </h4>
-            <ul className="space-y-2">
+            <ul className="space-y-3">
               {footerLinks.quickLinks.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-muted-foreground hover:text-primary transition-colors text-sm"
+                    className="text-white/60 hover:text-white transition-colors text-sm uppercase tracking-wider flex items-center gap-1 group"
                   >
-                    {link.name}
+                    <ArrowUpRight className="w-3 h-3 text-primary opacity-0 -translate-x-2 translate-y-2 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300" />
+                    <span className="group-hover:translate-x-1 transition-transform duration-300">{link.name}</span>
                   </a>
                 </li>
               ))}
@@ -81,17 +85,18 @@ export const Footer = () => {
 
           {/* Services */}
           <div>
-            <h4 className="font-display font-semibold uppercase tracking-wide mb-4">
-              Services
+            <h4 className="font-display font-bold uppercase tracking-widest text-white mb-6 flex items-center gap-2">
+              Services <div className="h-px bg-primary/50 flex-1 ml-4" />
             </h4>
-            <ul className="space-y-2">
+            <ul className="space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-muted-foreground hover:text-primary transition-colors text-sm"
+                    className="text-white/60 hover:text-white transition-colors text-sm uppercase tracking-wider flex items-center gap-1 group"
                   >
-                    {link.name}
+                    <ArrowUpRight className="w-3 h-3 text-primary opacity-0 -translate-x-2 translate-y-2 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300" />
+                    <span className="group-hover:translate-x-1 transition-transform duration-300">{link.name}</span>
                   </a>
                 </li>
               ))}
@@ -100,17 +105,18 @@ export const Footer = () => {
 
           {/* Support */}
           <div>
-            <h4 className="font-display font-semibold uppercase tracking-wide mb-4">
-              Support
+            <h4 className="font-display font-bold uppercase tracking-widest text-white mb-6 flex items-center gap-2">
+              Support <div className="h-px bg-primary/50 flex-1 ml-4" />
             </h4>
-            <ul className="space-y-2">
+            <ul className="space-y-3">
               {footerLinks.support.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-muted-foreground hover:text-primary transition-colors text-sm"
+                    className="text-white/60 hover:text-white transition-colors text-sm uppercase tracking-wider flex items-center gap-1 group"
                   >
-                    {link.name}
+                    <ArrowUpRight className="w-3 h-3 text-primary opacity-0 -translate-x-2 translate-y-2 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300" />
+                    <span className="group-hover:translate-x-1 transition-transform duration-300">{link.name}</span>
                   </a>
                 </li>
               ))}
@@ -119,12 +125,12 @@ export const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-border/50 pt-8 flex flex-col md:flex-row items-center justify-between gap-2">
-          <p className="text-muted-foreground text-sm">
-            © {new Date().getFullYear()} Pulse Fitness. All rights reserved.
+        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-white/40 text-sm tracking-wider uppercase ">
+            © {new Date().getFullYear()} Pulse Fitness. Build Your Legacy.
           </p>
-          <p className="text-muted-foreground text-sm">
-            Developed by <a href="https://syednoor.vercel.app/" target="_blank" className="text-primary underline underline-offset-2">Syed Shaeduzzaman Noor</a>
+          <p className="text-white/40 text-sm tracking-wider uppercase ">
+            Forge By <a href="https://syednoor.vercel.app/" target="_blank" className="text-primary hover:text-white transition-colors relative group"><span className="absolute bottom-0 left-0 w-full h-px bg-primary group-hover:bg-white transition-colors" />Syed Shaeduzzaman Noor</a>
           </p>
         </div>
       </div>
