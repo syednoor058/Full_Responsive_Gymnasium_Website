@@ -123,22 +123,13 @@ export const Features = () => {
             variants={itemVariants}
             className="relative hidden lg:block group"
           >
-            <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_0_40px_rgba(255,0,51,0.15)] ring-1 ring-white/10">
+            <div className="aspect-square rounded-2xl overflow-hidden shadow-[0_0_40px_rgba(255,0,51,0.15)] border border-white/10">
               <img
                 src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?q=80&w=1470&auto=format&fit=crop"
                 alt="Athlete training"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
             </div>
-            {/* Center Floating Badge */}
-            <motion.div
-              whileHover={{ scale: 1.1, rotate: 5 }}
-              className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-32 h-32 bg-primary rounded-2xl shadow-2xl flex flex-col items-center justify-center text-center rotate-[-5deg] border-4 border-background"
-            >
-              <span className="font-display text-4xl font-bold text-white leading-none">10+</span>
-              <span className="text-xs font-bold text-white/80 uppercase mt-1">Years<br />Exp</span>
-            </motion.div>
           </motion.div>
 
           {/* Right Features */}
