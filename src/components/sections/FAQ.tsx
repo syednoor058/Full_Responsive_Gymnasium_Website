@@ -45,7 +45,8 @@ export const FAQ = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="faq" className="section-padding bg-secondary">
+    <section id="faq" className="bg-secondary">
+      <div className="max-w-[1400px] mx-auto section-padding">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
@@ -103,6 +104,7 @@ export const FAQ = () => {
             </Accordion>
           </div>
         </motion.div>
+      </div>
     </section>
   );
 };

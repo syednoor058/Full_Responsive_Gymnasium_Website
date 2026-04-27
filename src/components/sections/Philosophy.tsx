@@ -12,7 +12,7 @@ export const Philosophy = () => {
 
   return (
     <section id="about" ref={targetRef} className="bg-secondary relative">
-      <div className="section-padding">
+      <div className="section-padding max-w-[1400px] mx-auto">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 relative">
 
           {/* Sticky Left Column */}
